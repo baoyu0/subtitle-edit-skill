@@ -1,35 +1,27 @@
-# Subtitle Edit — Agent Skill
+> **⚠️ 此仓库已归档** — 本 skill 已迁移至 [baoyu0/skills](https://github.com/baoyu0/skills/tree/main/media/subtitle-edit) 单体仓库。
 
-[![Agent Skill](https://img.shields.io/badge/Agent%20Skill-Subtitle%20Edit-blue)](https://github.com/baoyu0/subtitle-edit-skill)
+---
 
-AI agent skill for batch subtitle format conversion using [Subtitle Edit](https://www.nikse.dk/subtitleedit) CLI.
+# Subtitle Edit Agent Skill
 
-Supports Hermes, Claude Code, Codex, OpenCode, and any agent with SKILL.md support.
+Subtitle Edit CLI 操作 skill — 格式批量转换、时间偏移、编码处理、帧率修正。
 
-## Quick Install
+支持 Hermes / Claude Code / Codex / OpenCode 等多 agent 环境。
+
+## 功能
+
+- 格式转换：SRT、ASS、SSA、VTT、MicroDVD 等互转
+- 时间偏移：整体偏移或特定行范围偏移
+- 帧率修正：23.976 ↔ 25 ↔ 29.97 等常见帧率转换
+- 编码处理：UTF-8、GBK、BIG5 等编码批量转换
+- 修复常见告警：重叠行、过长行、无效字符
+
+## 使用
+
+### Hermes Agent
 
 ```bash
-npx skills add baoyu0/subtitle-edit-skill -g -y
+skill_view(name='subtitle-edit')
 ```
 
-Then your agent will automatically know how to convert subtitles when you ask.
-
-## What It Does
-
-- **Format conversion**: srt ↔ ass ↔ vtt ↔ ssa ↔ sub ↔ txt ↔ 300+ formats
-- **Time offset**: batch shift all subtitles forward/backward
-- **Frame rate**: force FPS for image-based subtitle timing
-- **Encoding**: specify output encoding (utf-8, shift-jis, etc.)
-- **Batch replace**: bulk text replacement across subtitle files
-- **MKV workflow**: extract + convert subtitles from Matroska containers
-
-## Prerequisites
-
-- [Subtitle Edit](https://www.nikse.dk/subtitleedit) installed (`SubtitleEdit.exe` on PATH)
-- Or [subtitleedit-cli](https://github.com/SubtitleEdit/subtitleedit-cli) for cross-platform headless use
-
-## Links
-
-- [Subtitle Edit](https://www.nikse.dk/subtitleedit) — official website
-- [Subtitle Edit CLI](https://github.com/SubtitleEdit/subtitleedit-cli) — standalone .NET 8 CLI tool
-- [Subtitle Edit on GitHub](https://github.com/SubtitleEdit/subtitleedit) — main project repo
+其他 agent 读取 `SKILL.md` 后按指令执行。
